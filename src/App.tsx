@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Canvas } from "@react-three/fiber";
+import Text3DExample from "./components/Text3DExample";
+import Rain from "./components/Rain";
+import WaterDroplet from "./components/WaterDroplet";
+import { OrbitControls } from "@react-three/drei";
+import { useRef } from "react";
+import { Physics } from "@react-three/rapier";
+import { Perf } from "r3f-perf";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ width: "100%", height: "100vh" }}>
+      <Canvas flat linear>
+        <Perf position="top-left" />
+        <color attach="background" args={['#000']} />
+        {/* <OrbitControls makeDefault /> */}
+        {/* <Physics>
+          <Lights />
+          <Level />
+        </Physics> */}
+        {/* <Text3DExample /> */}
+        <Rain />
+      </Canvas>
     </div>
   );
 }
